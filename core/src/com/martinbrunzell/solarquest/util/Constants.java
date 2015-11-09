@@ -12,6 +12,7 @@ public class Constants {
     public static final float VIEWPORT_HEIGHT = 5.0f;
 
     // Location of descprition file for atlas
+    public static final String TEXTURE_ATLAS_OBJECT = "images/solarquest.pack";
 
     // Background dimension
     public static final float BACKGROUND_DIMENSION = 300;

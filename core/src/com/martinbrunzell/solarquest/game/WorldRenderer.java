@@ -6,7 +6,9 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
+import com.martinbrunzell.solarquest.game.objects.Space;
 import com.martinbrunzell.solarquest.util.Constants;
 import com.sun.media.jfxmediaimpl.MediaDisposer;
 
@@ -15,6 +17,7 @@ public class WorldRenderer implements MediaDisposer.Disposable{
     private OrthographicCamera camera;
     private SpriteBatch batch;
     private WorldController worldController;
+    private Space space;
 
     public WorldRenderer(WorldController worldController) {
         this.worldController = worldController;
@@ -28,13 +31,14 @@ public class WorldRenderer implements MediaDisposer.Disposable{
         camera.position.set(0, 0, 0); // Sets the starting point for the camera
         camera.update();
 
+        //Initiates the game objects
+        space = new Space();
     }
 
     // Draws the changes in the world
     public void render() {
-        worldController.cameraHelper.applyTo(camera);
-        Gdx.app.debug(DEBUG_TAG, "Y = " + worldController.cameraHelper.getPosition().y + " X = " + worldController.cameraHelper.getPosition().x);
-        testRender(batch);
+        renderWorld(batch);
+        Gdx.app.debug(DEBUG_TAG, "" + Gdx.graphics.getFramesPerSecond());
 
     }
 
@@ -49,39 +53,41 @@ public class WorldRenderer implements MediaDisposer.Disposable{
         batch.dispose();
     }
 
+    // Renders the game world
+    private void renderWorld(SpriteBatch batch) {
+        worldController.cameraHelper.applyTo(camera);
+        space.render(batch);
+
+    }
     //****************
     // TEST RENDER
     //****************
-
+/*
     private void testRender(SpriteBatch batch) {
-        Texture background = new Texture("images/pixelSpace.png");
+        Texture background = new Texture("images/testSpace.png");
         Texture sun = new Texture("images/sun.png");
 
         Sprite spr = new Sprite(background);
         Sprite sunSprite = new Sprite(sun);
 
         spr.setSize(Constants.BACKGROUND_DIMENSION, Constants.BACKGROUND_DIMENSION);
-        spr.setPosition(0, 0);
+        spr.setPosition(Constants.BACKGROUND_DIMENSION / -2.0f, Constants.BACKGROUND_DIMENSION / -2.0f);
 
-        //sunSprite.se
+        sunSprite.setPosition(-5, -5);
+        sunSprite.setSize(10, 10);
+
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
 
         spr.draw(batch);
+        sunSprite.draw(batch);
 
         batch.end();
 
     }
+*/
 
-    private Pixmap createTestPixmap (int width, int height) {
-        Pixmap pixmap = new Pixmap(width, height, Pixmap.Format.RGB888);
-        //Fill square with color;
-        pixmap.setColor(0, 1, 0, 0.5f);
-        pixmap.fill();
-
-        return pixmap;
-    }
 
 
 

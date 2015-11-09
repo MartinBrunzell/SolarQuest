@@ -1,0 +1,27 @@
+
+solarquest.pack.png
+size: 4096,4096
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+Earth
+  rotate: false
+  xy: 2, 2
+  size: 36, 36
+  orig: 36, 36
+  offset: 0, 0
+  index: -1
+space
+  rotate: false
+  xy: 2, 40
+  size: 3000, 3000
+  orig: 3000, 3000
+  offset: 0, 0
+  index: -1
+sun
+  rotate: false
+  xy: 3004, 3005
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1

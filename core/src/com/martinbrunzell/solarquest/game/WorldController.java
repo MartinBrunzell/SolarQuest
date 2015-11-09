@@ -24,6 +24,7 @@ public class WorldController extends InputAdapter{
 
     public void update(float deltaTime){
         handleDebugInput(deltaTime);
+        cameraHelper.update(deltaTime);
     }
 
     // Implements movement of camera
