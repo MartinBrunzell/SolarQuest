@@ -55,14 +55,21 @@ public class WorldRenderer implements MediaDisposer.Disposable{
 
     private void testRender(SpriteBatch batch) {
         Texture background = new Texture("images/pixelSpace.png");
-        Sprite spr = new Sprite(background);
-        spr.setSize(Constants.BACKGROUND_DIMENSION, Constants.BACKGROUND_DIMENSION);
+        Texture sun = new Texture("images/sun.png");
 
-        spr.setPosition(-Constants.BACKGROUND_DIMENSION / 2.0f, -Constants.BACKGROUND_DIMENSION / 2.0f);
+        Sprite spr = new Sprite(background);
+        Sprite sunSprite = new Sprite(sun);
+
+        spr.setSize(Constants.BACKGROUND_DIMENSION, Constants.BACKGROUND_DIMENSION);
+        spr.setPosition(0, 0);
+
+        //sunSprite.se
 
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
+
         spr.draw(batch);
+
         batch.end();
 
     }

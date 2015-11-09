@@ -27,4 +27,6 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
     public void dispose() {
 
     }
+
+    // ASSET CLASSES
 }
