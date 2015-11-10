@@ -20,7 +20,9 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
     public AssetEarth earth;
 
     // Singleton class: Only one instance
-    private Assets() {}
+    private Assets() {
+        init(new AssetManager());
+    }
 
     public void init(AssetManager assetManeger) {
         this.assetManager = assetManeger;
