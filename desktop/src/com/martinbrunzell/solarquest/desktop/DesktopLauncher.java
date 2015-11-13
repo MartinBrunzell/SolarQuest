@@ -15,8 +15,8 @@ public class DesktopLauncher {
         //Chooses weather to rebuild atlas(load all images) or not
         if(rebuildAtlas) {
             Settings settings = new Settings();
-            settings.maxWidth = 1024 * 2 * 2;
-            settings.maxHeight = 1024 * 2 * 2;
+            settings.maxWidth = 1024;
+            settings.maxHeight = 1024;
             settings.duplicatePadding = false;
             settings.debug = drawDebugOutline;
             settings.atlasExtension="";

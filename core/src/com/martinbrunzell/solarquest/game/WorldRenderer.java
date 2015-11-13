@@ -2,13 +2,9 @@ package com.martinbrunzell.solarquest.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.Rectangle;
 import com.martinbrunzell.solarquest.game.objects.Space;
+import com.martinbrunzell.solarquest.game.objects.Sun;
 import com.martinbrunzell.solarquest.util.Constants;
 import com.sun.media.jfxmediaimpl.MediaDisposer;
 
@@ -17,7 +13,10 @@ public class WorldRenderer implements MediaDisposer.Disposable{
     private OrthographicCamera camera;
     private SpriteBatch batch;
     private WorldController worldController;
+
+    //Game objects
     private Space space;
+    private Sun sun;
 
     public WorldRenderer(WorldController worldController) {
         this.worldController = worldController;
@@ -32,7 +31,8 @@ public class WorldRenderer implements MediaDisposer.Disposable{
         camera.update();
 
         //Initiates the game objects
-        space = new Space();
+        //space = new Space();
+        sun = new Sun();
     }
 
     // Draws the changes in the world
@@ -56,8 +56,13 @@ public class WorldRenderer implements MediaDisposer.Disposable{
     // Renders the game world
     private void renderWorld(SpriteBatch batch) {
         worldController.cameraHelper.applyTo(camera);
-        space.render(batch);
+        batch.setProjectionMatrix(camera.combined);
 
+        batch.begin(); // Starts the writing
+
+        sun.render(batch);
+
+        batch.end();
     }
     //****************
     // TEST RENDER

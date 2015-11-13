@@ -1,6 +1,5 @@
 package com.martinbrunzell.solarquest.util;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -18,7 +17,7 @@ public class CameraHelper {
 
     public CameraHelper() {
         position = new Vector2();
-        zoom = 100.5f;
+        zoom = 10.5f;
     }
 
     public void update (float deltaTime) {
@@ -26,8 +25,6 @@ public class CameraHelper {
     }
 
     public void applyTo(OrthographicCamera camera) {
-
-
         camera.position.x = position.x;
         camera.position.y = position.y;
         camera.zoom = zoom;
@@ -39,10 +36,10 @@ public class CameraHelper {
         float border = (Constants.BACKGROUND_DIMENSION / 2.5f) - Constants.BACKGROUND_DIMENSION * 0.1f;
 
         if (position.x > -border && position.x < border)
-            position.x += -x / 12.0f;
+            position.x += -(x / (75.5f)) * zoom;
 
         if (position.y > -border && position.y < border)
-            position.y += y / 12.0f;
+            position.y += (y / (75.5f )) * zoom;
 
         if(position.y > border)
             position.y = border - 0.0001f;

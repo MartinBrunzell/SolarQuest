@@ -40,6 +40,7 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         for (Texture t : atlas.getTextures())
             t.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
 
+
         // creates game reasource objects
         space = new AssetSpace(atlas);
         sun = new AssetSun(atlas);

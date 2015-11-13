@@ -21,7 +21,7 @@ public abstract class AbstractWorldObject {
         bounds = new Rectangle();
     }
 
-    public abstract void update();
+    public abstract void update(float deltaTime);
 
     public abstract void render(SpriteBatch batch);
 

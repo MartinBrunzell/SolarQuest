@@ -1,51 +1,40 @@
 package com.martinbrunzell.solarquest.game.objects;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.martinbrunzell.solarquest.game.Assets;
-import com.martinbrunzell.solarquest.util.Constants;
 
-public class Space extends AbstractWorldObject{
-    private TextureRegion spaceReg;
-    private Sprite background;
+public class Sun extends AbstractWorldObject{
+    private TextureRegion sunReg;
 
-    public Space() {
+    public Sun() {
         init();
     }
 
-
     private void init() {
-        spaceReg = Assets.instance.space.space;
+        sunReg = Assets.instance.sun.sun;
 
-        float size = Constants.BACKGROUND_DIMENSION;
-        dimension.set(size, size);
-        position.set(-size / 2, -size / 2);
-
-        //Setting text sprite
-        background = new Sprite(spaceReg.getTexture());
+        //Setting location and size
+        position.set(0, 0);
+        dimension.set(75, 75);
+        origin.set(50, 50);
+        scale.set(1,1);
     }
+
 
     @Override
     public void update(float deltaTime) {
-
+        rotation = 5 * deltaTime;
     }
 
     @Override
     public void render(SpriteBatch batch) {
         TextureRegion reg = null;
-        reg = spaceReg;
+        reg = sunReg;
 
-        batch.begin();
         // Renders the background to the window
         batch.draw(reg.getTexture(), position.x, position.y, origin.x, origin.y,
                 dimension.x, dimension.y, scale.x, scale.y, rotation, reg.getRegionX(), reg.getRegionY(),
                 reg.getRegionWidth(), reg.getRegionHeight(), false, false);
-
-
-        batch.end();
-
     }
-
-
 }
