@@ -1,8 +1,6 @@
 package com.martinbrunzell.solarquest.util;
 
 
-import com.badlogic.gdx.math.Vector2;
-
 public class Constants {
 
     // The visible game world width
@@ -15,5 +13,5 @@ public class Constants {
     public static final String TEXTURE_ATLAS_OBJECT = "images/solarquest.pack";
 
     // Background dimension
-    public static final float BACKGROUND_DIMENSION = 300;
+    public static final float BACKGROUND_DIMENSION = 1000;
 }

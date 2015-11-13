@@ -31,7 +31,7 @@ public class WorldRenderer implements MediaDisposer.Disposable{
         camera.update();
 
         //Initiates the game objects
-        //space = new Space();
+        space = new Space();
         sun = new Sun();
     }
 
@@ -60,6 +60,7 @@ public class WorldRenderer implements MediaDisposer.Disposable{
 
         batch.begin(); // Starts the writing
 
+        space.render(batch);
         sun.render(batch);
 
         batch.end();

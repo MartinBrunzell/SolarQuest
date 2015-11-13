@@ -46,10 +46,10 @@ public class CameraHelper {
         else if(position.y < -border)
             position.y = -border + 0.0001f;
 
-        if(position.x > border  * 0.75)
-            position.x = (border  * 0.75f) - 0.0001f;
-        else if(position.x < -border * 0.75)
-            position.x = -(border  * 0.75f) + 0.0001f;
+        if(position.x > border  * 0.95)
+            position.x = (border  * 0.95f) - 0.0001f;
+        else if(position.x < -border * 0.95)
+            position.x = -(border  * 0.95f) + 0.0001f;
     }
 
     //********************

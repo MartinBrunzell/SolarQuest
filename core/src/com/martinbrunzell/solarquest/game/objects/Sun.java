@@ -16,7 +16,7 @@ public class Sun extends AbstractWorldObject{
 
         //Setting location and size
         position.set(0, 0);
-        dimension.set(75, 75);
+        dimension.set(100, 100);
         origin.set(50, 50);
         scale.set(1,1);
     }
@@ -24,7 +24,7 @@ public class Sun extends AbstractWorldObject{
 
     @Override
     public void update(float deltaTime) {
-        rotation = 5 * deltaTime;
+        rotation = 50 * deltaTime;
     }
 
     @Override
