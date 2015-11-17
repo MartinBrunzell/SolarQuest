@@ -17,7 +17,7 @@ public class Space extends AbstractWorldObject{
         spaceReg = Assets.instance.space.space;
 
         //Setting location and size
-        position.set(Constants.BACKGROUND_DIMENSION / -2.0f, Constants.BACKGROUND_DIMENSION / -2.0f);
+        position.set(0,0);
         dimension.set(Constants.BACKGROUND_DIMENSION, Constants.BACKGROUND_DIMENSION);
         origin.set(50, 50);
         scale.set(1,1);
@@ -35,9 +35,17 @@ public class Space extends AbstractWorldObject{
         reg = spaceReg;
 
         // Renders the background to the window
-        batch.draw(reg.getTexture(), position.x, position.y, origin.x, origin.y,
-                dimension.x, dimension.y, scale.x, scale.y, rotation, reg.getRegionX(), reg.getRegionY(),
-                reg.getRegionWidth(), reg.getRegionHeight(), false, false);
+        for(int i = 0; i < Constants.BACKGROUND_TILES_AMOUNT; i++) {
+            for(int j = 0; j < Constants.BACKGROUND_TILES_AMOUNT; j++){
+                batch.draw(reg.getTexture(), position.x + j * Constants.BACKGROUND_DIMENSION,
+                        position.y + i * Constants.BACKGROUND_DIMENSION, origin.x, origin.y,
+                        dimension.x, dimension.y, scale.x, scale.y, rotation, reg.getRegionX(), reg.getRegionY(),
+                        reg.getRegionWidth(), reg.getRegionHeight(), false, false);
+
+            }
+        }
+
+
 
 
     }

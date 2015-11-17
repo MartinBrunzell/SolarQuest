@@ -3,6 +3,7 @@ package com.martinbrunzell.solarquest.game.objects;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.martinbrunzell.solarquest.game.Assets;
+import com.martinbrunzell.solarquest.util.Constants;
 
 public class Sun extends AbstractWorldObject{
     private TextureRegion sunReg;
@@ -15,7 +16,8 @@ public class Sun extends AbstractWorldObject{
         sunReg = Assets.instance.sun.sun;
 
         //Setting location and size
-        position.set(0, 0);
+        position.set((Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT) / 2,
+                (Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT) / 2);
         dimension.set(100, 100);
         origin.set(50, 50);
         scale.set(1,1);

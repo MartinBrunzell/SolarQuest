@@ -53,7 +53,7 @@ public class WorldController extends InputAdapter{
 
         // Camera Controls (zoom)
         float camZoomSpeed = 1 * deltaTime;
-        float camZoomSpeedAccelerationFactor = 5;
+        float camZoomSpeedAccelerationFactor = 500;
         if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) camZoomSpeed *= camZoomSpeedAccelerationFactor;
         if (Gdx.input.isKeyPressed(Input.Keys.COMMA)) cameraHelper.addZoom(camZoomSpeed);
         if (Gdx.input.isKeyPressed(Input.Keys.PERIOD)) cameraHelper.addZoom(-camZoomSpeed);

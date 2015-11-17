@@ -14,4 +14,7 @@ public class Constants {
 
     // Background dimension
     public static final float BACKGROUND_DIMENSION = 1000;
+
+    // Ammount of Background tiles (NxN)
+    public static final float BACKGROUND_TILES_AMOUNT = 5;
 }
