@@ -33,7 +33,7 @@ public class CameraHelper {
     }
 
     public void dragCamera(float x, float y) {
-        float border = (Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT) / 2.0f;
+        float border = (Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT) / 1.05f;
 
         if (position.x > -border && position.x < border)
             position.x += -(x / (75.5f)) * zoom;
@@ -42,14 +42,14 @@ public class CameraHelper {
             position.y += (y / (75.5f )) * zoom;
 
         if(position.y > border)
-            position.y = border - 0.0001f;
-        else if(position.y < -border)
-            position.y = -border + 0.0001f;
+            position.y -= 0.005f;
+        else if(position.y < 0)
+            position.y += 1.5f;
 
-        if(position.x > border  * 0.75)
-            position.x = (border  * 0.75f) - 0.0001f;
-        else if(position.x < -border * 0.75)
-            position.x = -(border  * 0.75f) + 0.0001f;
+        if(position.x > border - Constants.BACKGROUND_DIMENSION )
+            position.x -= 1.5f;
+        else if(position.x < Constants.BACKGROUND_DIMENSION)
+            position.x += 1.5f;
     }
 
     //********************
