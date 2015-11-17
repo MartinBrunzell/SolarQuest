@@ -8,7 +8,7 @@ public class CameraHelper {
     private static final String DEBUG_TAG = CameraHelper.class.getName();
 
     private final float MAX_ZOOM_IN = 0.25f;
-    private final float MAX_ZOOM_OUT = 2572.5f;
+    private final float MAX_ZOOM_OUT = 500.0f;
 
     private Vector2 position;
     private float zoom;
@@ -36,10 +36,10 @@ public class CameraHelper {
         float border = (Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT) / 1.05f;
 
         if (position.x > -border && position.x < border)
-            position.x += -(x / (75.5f)) * zoom;
+            position.x += -(x / (95.5f)) * zoom;
 
         if (position.y > -border && position.y < border)
-            position.y += (y / (75.5f )) * zoom;
+            position.y += (y / (95.5f )) * zoom;
 
         if(position.y > border)
             position.y -= 0.005f;
