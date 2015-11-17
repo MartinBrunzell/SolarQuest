@@ -39,7 +39,6 @@ public class WorldRenderer implements MediaDisposer.Disposable{
     public void render() {
         renderWorld(batch);
         Gdx.app.debug(DEBUG_TAG, "" + Gdx.graphics.getFramesPerSecond());
-
     }
 
     public void resize(int width, int height){

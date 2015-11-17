@@ -67,7 +67,7 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         public final TextureAtlas.AtlasRegion space;
 
         public AssetSpace(TextureAtlas atlas) {
-            space = atlas.findRegion("spaceSmall");
+            space = atlas.findRegion("space3");
         }
     }
 

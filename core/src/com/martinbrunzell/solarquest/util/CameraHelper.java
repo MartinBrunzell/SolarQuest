@@ -1,5 +1,6 @@
 package com.martinbrunzell.solarquest.util;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -15,8 +16,8 @@ public class CameraHelper {
 
     public CameraHelper() {
         position = new Vector2();
-        position.set((Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT) / 2,
-                (Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT) / 2);
+        position.set(((Constants.BACKGROUND_DIMENSION * (Constants.BACKGROUND_TILES_AMOUNT) ) / 2) - 50,
+                ((Constants.BACKGROUND_DIMENSION * 8 ) / 2) -50);
         zoom = 100.5f;
     }
 
@@ -28,12 +29,11 @@ public class CameraHelper {
         camera.position.x = position.x;
         camera.position.y = position.y;
         camera.zoom = zoom;
-
         camera.update();
     }
 
     public void dragCamera(float x, float y) {
-        float border = (Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT) / 1.05f;
+        float border = (Constants.BACKGROUND_DIMENSION * 7);
 
         if (position.x > -border && position.x < border)
             position.x += -(x / (95.5f)) * zoom;
@@ -41,15 +41,15 @@ public class CameraHelper {
         if (position.y > -border && position.y < border)
             position.y += (y / (95.5f )) * zoom;
 
-        if(position.y > border)
-            position.y -= 0.005f;
-        else if(position.y < 0)
-            position.y += 1.5f;
+        if(position.y > (border - 249))
+            position.y = (border - 249) - 0.0001f;
+        else if(position.y < 1250)
+            position.y = (1250) + 0.0001f;
 
-        if(position.x > border - Constants.BACKGROUND_DIMENSION )
-            position.x -= 1.5f;
-        else if(position.x < Constants.BACKGROUND_DIMENSION)
-            position.x += 1.5f;
+        if(position.x > (border - 360))
+            position.x = (border - 360) - 0.0001f;
+        else if(position.x < 3360)
+            position.x = (3360) + 0.0001f;
     }
 
     //********************

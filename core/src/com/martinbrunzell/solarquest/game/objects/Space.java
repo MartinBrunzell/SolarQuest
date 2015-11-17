@@ -36,7 +36,7 @@ public class Space extends AbstractWorldObject{
 
         // Renders the background to the window
         for(int i = 0; i < Constants.BACKGROUND_TILES_AMOUNT; i++) {
-            for(int j = 0; j < Constants.BACKGROUND_TILES_AMOUNT; j++){
+            for(int j = 0; j < Constants.BACKGROUND_TILES_AMOUNT + 2; j++){
                 batch.draw(reg.getTexture(), position.x + j * Constants.BACKGROUND_DIMENSION,
                         position.y + i * Constants.BACKGROUND_DIMENSION, origin.x, origin.y,
                         dimension.x, dimension.y, scale.x, scale.y, rotation, reg.getRegionX(), reg.getRegionY(),
