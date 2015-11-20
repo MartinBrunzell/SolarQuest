@@ -12,9 +12,15 @@ public class Constants {
     // Location of descprition file for atlas
     public static final String TEXTURE_ATLAS_OBJECT = "images/solarquest.pack";
 
-    // Background dimension
+    // Background dimension (MxM)
     public static final float BACKGROUND_DIMENSION = 1000;
 
     // Ammount of Background tiles (NxN)
     public static final float BACKGROUND_TILES_AMOUNT = 10;
+
+    // The Time constant
+    public static final float TIME_CONSTANT = 24;
+
+    // The date of start
+    public static final float TIME_START = 0;
 }

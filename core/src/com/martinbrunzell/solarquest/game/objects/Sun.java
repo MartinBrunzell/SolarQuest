@@ -2,11 +2,13 @@ package com.martinbrunzell.solarquest.game.objects;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector2;
 import com.martinbrunzell.solarquest.game.Assets;
 import com.martinbrunzell.solarquest.util.Constants;
 
 public class Sun extends AbstractWorldObject{
     private TextureRegion sunReg;
+    private static Vector2 centerPoint;
 
     public Sun() {
         init();
@@ -21,6 +23,9 @@ public class Sun extends AbstractWorldObject{
         dimension.set(100, 100);
         origin.set(50, 50);
         scale.set(1,1);
+
+        centerPoint.set(((Constants.BACKGROUND_DIMENSION * (Constants.BACKGROUND_TILES_AMOUNT) ) / 2) - 50,
+                ((Constants.BACKGROUND_DIMENSION * 8 ) / 2) -50);
     }
 
 
@@ -39,4 +44,13 @@ public class Sun extends AbstractWorldObject{
                 dimension.x, dimension.y, scale.x, scale.y, rotation, reg.getRegionX(), reg.getRegionY(),
                 reg.getRegionWidth(), reg.getRegionHeight(), false, false);
     }
+
+    //######################
+    //      GETTERS
+    //######################
+
+    public Vector2 getCenterPoint() {
+        return centerPoint;
+    }
+
 }

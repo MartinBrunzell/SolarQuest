@@ -7,6 +7,7 @@ import com.martinbrunzell.solarquest.util.Constants;
 
 public class Space extends AbstractWorldObject{
     private TextureRegion spaceReg;
+    private float radius;
 
     public Space() {
         init();
@@ -21,6 +22,8 @@ public class Space extends AbstractWorldObject{
         dimension.set(Constants.BACKGROUND_DIMENSION, Constants.BACKGROUND_DIMENSION);
         origin.set(50, 50);
         scale.set(1,1);
+
+        radius = 100.0f;
 
     }
 
@@ -44,11 +47,14 @@ public class Space extends AbstractWorldObject{
 
             }
         }
-
-
-
-
     }
 
+    //######################
+    //      GETTERS
+    //######################
+
+    public float getRadius() {
+        return radius;
+    }
 
 }
