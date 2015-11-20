@@ -4,11 +4,18 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
+import com.martinbrunzell.solarquest.game.objects.AbstractWorldObject;
+import com.martinbrunzell.solarquest.game.objects.Earth;
+import com.martinbrunzell.solarquest.game.objects.Space;
+import com.martinbrunzell.solarquest.game.objects.Sun;
 import com.martinbrunzell.solarquest.util.CameraHelper;
 
 public class WorldController extends InputAdapter{
     private static final String DEBUG_TAG = WorldController.class.getName();
     public CameraHelper cameraHelper;
+    protected Space space;
+    protected Sun sun;
+    protected Earth earth;
 
 
 
@@ -19,6 +26,11 @@ public class WorldController extends InputAdapter{
     private void init() {
         Gdx.input.setInputProcessor(this);
         cameraHelper = new CameraHelper();
+
+        // Initiates objects
+        space = new Space();
+        sun = new Sun();
+        earth = new Earth();
 
     }
 
@@ -64,6 +76,10 @@ public class WorldController extends InputAdapter{
         x += cameraHelper.getPosition().x;
         y += cameraHelper.getPosition().y;
         cameraHelper.setPosition(x, y);
+    }
+
+    private void updatePlanet(AbstractWorldObject planet) {
+
     }
 
 

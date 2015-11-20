@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.martinbrunzell.solarquest.util.Constants;
 import com.sun.media.jfxmediaimpl.MediaDisposer;
@@ -37,9 +36,9 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         TextureAtlas atlas = assetManeger.get(Constants.TEXTURE_ATLAS_OBJECT);
 
         // enables texture filtering for pixel smoothing
-        for (Texture t : atlas.getTextures())
+      /*  for (Texture t : atlas.getTextures())
             t.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-
+        */
 
         // creates game reasource objects
         space = new AssetSpace(atlas);

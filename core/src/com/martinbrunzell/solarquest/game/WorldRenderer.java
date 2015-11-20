@@ -3,6 +3,7 @@ package com.martinbrunzell.solarquest.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.martinbrunzell.solarquest.game.objects.Earth;
 import com.martinbrunzell.solarquest.game.objects.Space;
 import com.martinbrunzell.solarquest.game.objects.Sun;
 import com.martinbrunzell.solarquest.util.Constants;
@@ -17,6 +18,7 @@ public class WorldRenderer implements MediaDisposer.Disposable{
     //Game objects
     private Space space;
     private Sun sun;
+    private Earth earth;
 
     public WorldRenderer(WorldController worldController) {
         this.worldController = worldController;
@@ -30,9 +32,6 @@ public class WorldRenderer implements MediaDisposer.Disposable{
         camera.position.set(0, 0, 0); // Sets the starting point for the camera
         camera.update();
 
-        //Initiates the game objects
-        space = new Space();
-        sun = new Sun();
     }
 
     // Draws the changes in the world
@@ -59,8 +58,9 @@ public class WorldRenderer implements MediaDisposer.Disposable{
 
         batch.begin(); // Starts the writing
 
-        space.render(batch);
-        sun.render(batch);
+        worldController.space.render(batch);
+        worldController.sun.render(batch);
+        worldController.earth.render(batch);
 
         batch.end();
     }
