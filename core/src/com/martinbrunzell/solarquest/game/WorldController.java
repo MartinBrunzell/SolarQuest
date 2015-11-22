@@ -17,6 +17,8 @@ public class WorldController extends InputAdapter{
     protected Sun sun;
     protected Earth earth;
 
+    private float test = 0;
+
 
 
     public WorldController () {
@@ -37,6 +39,8 @@ public class WorldController extends InputAdapter{
     public void update(float deltaTime){
         handleDebugInput(deltaTime);
         cameraHelper.update(deltaTime);
+        test += deltaTime;
+        Gdx.app.debug(DEBUG_TAG, " " + test);
     }
 
     // Implements movement of camera

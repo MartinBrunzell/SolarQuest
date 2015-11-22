@@ -1,6 +1,5 @@
 package com.martinbrunzell.solarquest.game;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.martinbrunzell.solarquest.game.objects.Earth;
@@ -37,7 +36,7 @@ public class WorldRenderer implements MediaDisposer.Disposable{
     // Draws the changes in the world
     public void render() {
         renderWorld(batch);
-        Gdx.app.debug(DEBUG_TAG, "" + Gdx.graphics.getFramesPerSecond());
+        //Gdx.app.debug(DEBUG_TAG, "" + Gdx.graphics.getFramesPerSecond());
     }
 
     public void resize(int width, int height){

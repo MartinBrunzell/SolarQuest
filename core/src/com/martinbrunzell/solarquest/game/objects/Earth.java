@@ -7,8 +7,11 @@ import com.martinbrunzell.solarquest.util.Constants;
 
 public class Earth extends AbstractWorldObject{
     private TextureRegion earthReg;
+    private float angle;
+    private float radius;
 
     public Earth() {
+        radius = 150.0f;
         init();
     }
 
