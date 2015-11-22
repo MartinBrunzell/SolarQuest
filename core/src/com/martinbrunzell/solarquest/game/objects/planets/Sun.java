@@ -1,14 +1,16 @@
-package com.martinbrunzell.solarquest.game.objects;
+package com.martinbrunzell.solarquest.game.objects.planets;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.martinbrunzell.solarquest.game.Assets;
+import com.martinbrunzell.solarquest.game.objects.AbstractWorldObject;
 import com.martinbrunzell.solarquest.util.Constants;
 
-public class Sun extends AbstractWorldObject{
+public class Sun extends AbstractPlanetObject {
     private TextureRegion sunReg;
 
-    public Sun() {
+    public Sun(float radius, float timeConstant, float rotation, AbstractPlanetObject center) {
+        super(radius, timeConstant, rotation, center);
         init();
     }
 
@@ -21,12 +23,14 @@ public class Sun extends AbstractWorldObject{
         dimension.set(100, 100);
         origin.set(50, 50);
         scale.set(1,1);
+
+        //Choosing the time-constant
     }
 
 
     @Override
     public void update(float deltaTime) {
-        rotation = 50 * deltaTime;
+        rotation += 5 * deltaTime;
     }
 
     @Override
@@ -35,7 +39,7 @@ public class Sun extends AbstractWorldObject{
         reg = sunReg;
 
         // Renders the background to the window
-        batch.draw(reg.getTexture(), position.x, position.y, origin.x, origin.y,
+        batch.draw(reg.getTexture(), position.x - dimension.x/2, position.y - dimension.y/2, origin.x, origin.y,
                 dimension.x, dimension.y, scale.x, scale.y, rotation, reg.getRegionX(), reg.getRegionY(),
                 reg.getRegionWidth(), reg.getRegionHeight(), false, false);
     }
@@ -43,6 +47,5 @@ public class Sun extends AbstractWorldObject{
     //######################
     //      GETTERS
     //######################
-
 
 }

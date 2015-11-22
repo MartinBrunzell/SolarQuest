@@ -11,6 +11,7 @@ public abstract class AbstractWorldObject {
     public Vector2 scale;
     public float rotation;
     public Rectangle bounds;
+    public float radius;
 
     public AbstractWorldObject() {
         position = new Vector2();

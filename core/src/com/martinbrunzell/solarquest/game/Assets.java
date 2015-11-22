@@ -17,6 +17,7 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
     public AssetSpace space;
     public AssetSun sun;
     public AssetEarth earth;
+    public AssetMoon moon;
 
     // Singleton class: Only one instance
     private Assets() {
@@ -44,6 +45,7 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         space = new AssetSpace(atlas);
         sun = new AssetSun(atlas);
         earth = new AssetEarth(atlas);
+        moon = new AssetMoon(atlas);
 
     }
 
@@ -85,6 +87,15 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
 
         public AssetEarth (TextureAtlas atlas) {
             earth = atlas.findRegion("Earth");
+        }
+    }
+
+    // Declares the Moon object
+    public class AssetMoon {
+        public final TextureAtlas.AtlasRegion moon;
+
+        public AssetMoon (TextureAtlas atlas) {
+            moon = atlas.findRegion("moon");
         }
     }
 

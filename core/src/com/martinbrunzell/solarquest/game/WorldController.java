@@ -5,9 +5,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.martinbrunzell.solarquest.game.objects.AbstractWorldObject;
-import com.martinbrunzell.solarquest.game.objects.Earth;
+import com.martinbrunzell.solarquest.game.objects.planets.Earth;
 import com.martinbrunzell.solarquest.game.objects.Space;
-import com.martinbrunzell.solarquest.game.objects.Sun;
+import com.martinbrunzell.solarquest.game.objects.planets.Moon;
+import com.martinbrunzell.solarquest.game.objects.planets.Sun;
 import com.martinbrunzell.solarquest.util.CameraHelper;
 
 public class WorldController extends InputAdapter{
@@ -16,6 +17,7 @@ public class WorldController extends InputAdapter{
     protected Space space;
     protected Sun sun;
     protected Earth earth;
+    protected Moon moon;
 
     private float test = 0;
 
@@ -31,16 +33,16 @@ public class WorldController extends InputAdapter{
 
         // Initiates objects
         space = new Space();
-        sun = new Sun();
-        earth = new Earth();
+        sun = new Sun(0, 1, 1, null);
+        earth = new Earth(250, 20f, 100, sun);
+        moon = new Moon(40, 1f, 100, earth);
 
     }
 
     public void update(float deltaTime){
         handleDebugInput(deltaTime);
         cameraHelper.update(deltaTime);
-        test += deltaTime;
-        Gdx.app.debug(DEBUG_TAG, " " + test);
+        updatePlanets(deltaTime);
     }
 
     // Implements movement of camera
@@ -82,8 +84,10 @@ public class WorldController extends InputAdapter{
         cameraHelper.setPosition(x, y);
     }
 
-    private void updatePlanet(AbstractWorldObject planet) {
-
+    private void updatePlanets(float deltaTime) {
+        sun.update(deltaTime);
+        earth.update(deltaTime);
+        moon.update(deltaTime);
     }
 
 

@@ -2,9 +2,9 @@ package com.martinbrunzell.solarquest.game;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.martinbrunzell.solarquest.game.objects.Earth;
+import com.martinbrunzell.solarquest.game.objects.planets.Earth;
 import com.martinbrunzell.solarquest.game.objects.Space;
-import com.martinbrunzell.solarquest.game.objects.Sun;
+import com.martinbrunzell.solarquest.game.objects.planets.Sun;
 import com.martinbrunzell.solarquest.util.Constants;
 import com.sun.media.jfxmediaimpl.MediaDisposer;
 
@@ -60,6 +60,7 @@ public class WorldRenderer implements MediaDisposer.Disposable{
         worldController.space.render(batch);
         worldController.sun.render(batch);
         worldController.earth.render(batch);
+        worldController.moon.render(batch);
 
         batch.end();
     }
