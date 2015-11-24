@@ -61,6 +61,11 @@ public class WorldRenderer implements MediaDisposer.Disposable{
         worldController.sun.render(batch);
         worldController.earth.render(batch);
         worldController.moon.render(batch);
+        worldController.mercury.render(batch);
+        worldController.venus.render(batch);
+        worldController.mars.render(batch);
+        worldController.mars_phobos.render(batch);
+        worldController.mars_deimos.render(batch);
 
         batch.end();
     }

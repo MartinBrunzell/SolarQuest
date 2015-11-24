@@ -3,8 +3,10 @@ package com.martinbrunzell.solarquest.game.objects.planets;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.martinbrunzell.solarquest.game.objects.AbstractWorldObject;
+import com.martinbrunzell.solarquest.util.Constants;
 
 import java.util.Map;
+import java.util.Random;
 
 
 public class AbstractPlanetObject extends AbstractWorldObject{
@@ -18,7 +20,7 @@ public class AbstractPlanetObject extends AbstractWorldObject{
         this.timeConstant = timeConstant;
         super.rotation = rotation;
         this.center = center;
-        angle = 0;
+        angle = System.currentTimeMillis();
     }
 
     @Override

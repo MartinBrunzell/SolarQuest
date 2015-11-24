@@ -5,19 +5,26 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.martinbrunzell.solarquest.game.objects.AbstractWorldObject;
-import com.martinbrunzell.solarquest.game.objects.planets.Earth;
+import com.martinbrunzell.solarquest.game.objects.planets.*;
 import com.martinbrunzell.solarquest.game.objects.Space;
-import com.martinbrunzell.solarquest.game.objects.planets.Moon;
-import com.martinbrunzell.solarquest.game.objects.planets.Sun;
 import com.martinbrunzell.solarquest.util.CameraHelper;
 
 public class WorldController extends InputAdapter{
     private static final String DEBUG_TAG = WorldController.class.getName();
     public CameraHelper cameraHelper;
+
+    // Objects
     protected Space space;
+
+    //Planets
     protected Sun sun;
     protected Earth earth;
     protected Moon moon;
+    protected Mercury mercury;
+    protected Venus venus;
+    protected Mars mars;
+    protected Mars_Phobos mars_phobos;
+    protected Mars_Deimos mars_deimos;
 
     private float test = 0;
 
@@ -34,8 +41,13 @@ public class WorldController extends InputAdapter{
         // Initiates objects
         space = new Space();
         sun = new Sun(0, 1, 1, null);
-        earth = new Earth(250, 20f, 100, sun);
-        moon = new Moon(40, 1f, 100, earth);
+        earth = new Earth(250, 5.1f, 100, sun);
+        moon = new Moon(30, 1f, 100, earth);
+        mercury = new Mercury(100, 10f, 100, sun);
+        venus = new Venus(175, 15f, 100, sun);
+        mars = new Mars(380, 23f, 120, sun);
+        mars_phobos = new Mars_Phobos(20, 0.5f, 200, mars);
+        mars_deimos = new Mars_Deimos(25, 2, 150, mars);
 
     }
 
@@ -88,6 +100,11 @@ public class WorldController extends InputAdapter{
         sun.update(deltaTime);
         earth.update(deltaTime);
         moon.update(deltaTime);
+        mercury.update(deltaTime);
+        venus.update(deltaTime);
+        mars.update(deltaTime);
+        mars_phobos.update(deltaTime);
+        mars_deimos.update(deltaTime);
     }
 
 

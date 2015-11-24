@@ -18,6 +18,11 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
     public AssetSun sun;
     public AssetEarth earth;
     public AssetMoon moon;
+    public AssetMercury mercury;
+    public AssetVenus venus;
+    public AssetMars mars;
+    public AssetMars_Phobos mars_phobos;
+    public AssetMars_Deimos mars_deimos;
 
     // Singleton class: Only one instance
     private Assets() {
@@ -46,6 +51,11 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         sun = new AssetSun(atlas);
         earth = new AssetEarth(atlas);
         moon = new AssetMoon(atlas);
+        mercury = new AssetMercury(atlas);
+        venus = new AssetVenus(atlas);
+        mars = new AssetMars(atlas);
+        mars_phobos = new AssetMars_Phobos(atlas);
+        mars_deimos = new AssetMars_Deimos(atlas);
 
     }
 
@@ -99,6 +109,50 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         }
     }
 
+    //Declares Mercury!
+    public class AssetMercury {
+        public final TextureAtlas.AtlasRegion mercury;
+
+        public AssetMercury(TextureAtlas atlas) {
+            mercury = atlas.findRegion("mercury");
+        }
+    }
+
+    //Declares Venus
+    public class AssetVenus {
+        public final TextureAtlas.AtlasRegion venus;
+
+        public AssetVenus(TextureAtlas atlas) {
+            venus = atlas.findRegion("venus");
+        }
+    }
+
+    //Declares Mars
+    public class AssetMars {
+        public final TextureAtlas.AtlasRegion mars;
+
+        public AssetMars(TextureAtlas atlas) {
+            mars = atlas.findRegion("mars");
+        }
+    }
+
+    //Declares Mars moon PHOBOS
+    public class AssetMars_Phobos {
+        public final TextureAtlas.AtlasRegion mars_phobos;
+
+        public AssetMars_Phobos(TextureAtlas atlas) {
+            mars_phobos = atlas.findRegion("mars_phobos");
+        }
+    }
+
+    //Declares Mars moon DEIMOS
+    public class AssetMars_Deimos {
+        public final TextureAtlas.AtlasRegion mars_deimos;
+
+        public AssetMars_Deimos(TextureAtlas atlas) {
+            mars_deimos = atlas.findRegion("mars_deimos");
+        }
+    }
 }
 
 

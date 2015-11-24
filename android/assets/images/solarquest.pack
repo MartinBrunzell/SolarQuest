@@ -6,29 +6,64 @@ filter: Nearest,Nearest
 repeat: none
 Earth
   rotate: false
-  xy: 1004, 914
+  xy: 1113, 983
   size: 36, 36
   orig: 36, 36
   offset: 0, 0
   index: -1
+mars
+  rotate: false
+  xy: 1066, 974
+  size: 45, 45
+  orig: 45, 45
+  offset: 0, 0
+  index: -1
+mars_deimos
+  rotate: false
+  xy: 1151, 999
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+mars_phobos
+  rotate: false
+  xy: 2, 2
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+mercury
+  rotate: false
+  xy: 1004, 860
+  size: 45, 45
+  orig: 45, 45
+  offset: 0, 0
+  index: -1
 moon
   rotate: false
-  xy: 1004, 952
+  xy: 1004, 907
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
 space3
   rotate: false
-  xy: 2, 2
+  xy: 2, 19
   size: 1000, 1000
   orig: 1000, 1000
   offset: 0, 0
   index: -1
 sun
   rotate: false
-  xy: 1056, 967
+  xy: 1004, 823
   size: 35, 35
   orig: 35, 35
+  offset: 0, 0
+  index: -1
+venus
+  rotate: false
+  xy: 1004, 959
+  size: 60, 60
+  orig: 60, 60
   offset: 0, 0
   index: -1

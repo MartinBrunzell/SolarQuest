@@ -19,7 +19,7 @@ public class Constants {
     public static final float BACKGROUND_TILES_AMOUNT = 10;
 
     // The Time constant
-    public static final float TIME_CONSTANT = 24;
+    public static float TIME_CONSTANT = 5f;
 
     // The date of start
     public static final float TIME_START = 0;
