@@ -18,7 +18,7 @@ public class Mars extends AbstractPlanetObject {
 
         //Setting location and size
         position.set(0,0);
-        dimension.set(15, 15);
+        dimension.set(19, 19);
         origin.set(dimension.x/2, dimension.y/2);
         scale.set(1, 1);
     }

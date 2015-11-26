@@ -41,11 +41,11 @@ public class WorldController extends InputAdapter{
         // Initiates objects
         space = new Space();
         sun = new Sun(0, 1, 1, null);
-        earth = new Earth(250, 5.1f, 100, sun);
+        earth = new Earth(250, 4.1f, 100, sun);
         moon = new Moon(30, 1f, 100, earth);
-        mercury = new Mercury(100, 10f, 100, sun);
-        venus = new Venus(175, 15f, 100, sun);
-        mars = new Mars(380, 23f, 120, sun);
+        mercury = new Mercury(100, 3.8f, 100, sun);
+        venus = new Venus(175, 4f, 100, sun);
+        mars = new Mars(350, 13f, 120, sun);
         mars_phobos = new Mars_Phobos(20, 0.5f, 200, mars);
         mars_deimos = new Mars_Deimos(25, 2, 150, mars);
 
