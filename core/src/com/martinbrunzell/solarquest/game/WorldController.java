@@ -4,6 +4,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.math.Vector2;
 import com.martinbrunzell.solarquest.game.objects.AbstractWorldObject;
 import com.martinbrunzell.solarquest.game.objects.planets.*;
 import com.martinbrunzell.solarquest.game.objects.Space;
@@ -43,7 +44,7 @@ public class WorldController extends InputAdapter{
         sun = new Sun(0, 1, 1, null);
         earth = new Earth(250, 4.1f, 100, sun);
         moon = new Moon(30, 1f, 100, earth);
-        mercury = new Mercury(100, 3.8f, 100, sun);
+        mercury = new Mercury(100, 1.8f, 100, sun);
         venus = new Venus(175, 4f, 100, sun);
         mars = new Mars(350, 13f, 120, sun);
         mars_phobos = new Mars_Phobos(20, 0.5f, 200, mars);
@@ -64,6 +65,31 @@ public class WorldController extends InputAdapter{
         return true;
     }
 
+    // Makes the target system
+    @Override
+    public boolean touchDown(int x, int y, int pointer, int button) {
+        Gdx.app.debug(DEBUG_TAG, "X:" + x + "  Y:" + y);
+        AbstractPlanetObject target = hitBoxChecker(x, y);
+        Gdx.app.debug(DEBUG_TAG,"X: " +  mars.bounds.x + "Y: " +  mars.bounds.y);
+        cameraHelper.setTarget(target);
+        return true;
+    }
+
+    private AbstractPlanetObject hitBoxChecker(int x, int y) {
+        if(mercury.bounds.contains(x, y))
+            return mercury;
+        else if (venus.bounds.contains(x, y))
+            return venus;
+        else if (earth.bounds.contains(x, y))
+            return earth;
+        else if (mars.bounds.contains(x, y))
+            return mars;
+        else
+            return null;
+    }
+
+
+
     //**************
     //DEGUB CONTROLLS
     //**************
@@ -73,7 +99,7 @@ public class WorldController extends InputAdapter{
 
         // Camera Controls (move)
         float camMoveSpeed = 5 * deltaTime;
-        float camMoveSpeedAccelerationFactor = 5;
+        float camMoveSpeedAccelerationFactor = 250;
         if (Gdx.input.isKeyPressed(Input.Keys.SHIFT_LEFT)) camMoveSpeed *= camMoveSpeedAccelerationFactor;
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) moveCamera(-camMoveSpeed, 0);
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) moveCamera(camMoveSpeed, 0);

@@ -21,6 +21,4 @@ public class Constants {
     // The Time constant
     public static float TIME_CONSTANT = 5f;
 
-    // The date of start
-    public static final float TIME_START = 0;
 }

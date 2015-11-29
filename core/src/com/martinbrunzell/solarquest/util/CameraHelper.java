@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.martinbrunzell.solarquest.game.objects.planets.AbstractPlanetObject;
 
 public class CameraHelper {
     private static final String DEBUG_TAG = CameraHelper.class.getName();
@@ -13,12 +14,14 @@ public class CameraHelper {
 
     private Vector2 position;
     private float zoom;
+    private AbstractPlanetObject target;
 
     public CameraHelper() {
         position = new Vector2();
         position.set(((Constants.BACKGROUND_DIMENSION * (Constants.BACKGROUND_TILES_AMOUNT) ) / 2) - 50,
                 ((Constants.BACKGROUND_DIMENSION * 8 ) / 2) -50);
         zoom = 100.5f;
+        target = null;
     }
 
     public void update (float deltaTime) {
@@ -26,20 +29,43 @@ public class CameraHelper {
     }
 
     public void applyTo(OrthographicCamera camera) {
-        camera.position.x = position.x;
-        camera.position.y = position.y;
+        float camX = camera.position.x;
+        float camY = camera.position.y;
+
+        if(target == null) {
+            float minCameraX = camera.zoom * (camera.viewportWidth / 2);
+            float maxCameraX = Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT - minCameraX;
+            float minCameraY = camera.zoom * (camera.viewportHeight / 2);
+            float maxCameraY = Constants.BACKGROUND_DIMENSION * Constants.BACKGROUND_TILES_AMOUNT - minCameraY;
+            camera.position.set(Math.min(maxCameraX, Math.max(position.x - 150, minCameraX)),
+                    Math.min(maxCameraY, Math.max(position.y - 150, minCameraY)),
+                    0);
+
+        } else {
+            camera.position.x = target.position.x;
+            camera.position.y = target.position.y;
+        }
+
+        /*
+        if(target == null) {
+            camera.position.x = position.x;
+            camera.position.y = position.y;
+        } else {
+            camera.position.x = target.position.x;
+            camera.position.y = target.position.y;
+        }
+        */
         camera.zoom = zoom;
         camera.update();
+
     }
 
     public void dragCamera(float x, float y) {
+            position.x += -(x / (95.5f)) * zoom;
+            position.y += (y / (95.5f )) * zoom;
+        /*
         float border = (Constants.BACKGROUND_DIMENSION * 7);
 
-        if (position.x > -border && position.x < border)
-            position.x += -(x / (95.5f)) * zoom;
-
-        if (position.y > -border && position.y < border)
-            position.y += (y / (95.5f )) * zoom;
 
         if(position.y > (border - 249))
             position.y = (border - 249) - 0.0001f;
@@ -50,6 +76,7 @@ public class CameraHelper {
             position.x = (border - 360) - 0.0001f;
         else if(position.x < 3360)
             position.x = (3360) + 0.0001f;
+        */
     }
 
     //********************
@@ -71,5 +98,9 @@ public class CameraHelper {
     public float getZoom() {
         return zoom;
     }
+    public void setTarget(AbstractPlanetObject target) {
+        this.target = target;
+    }
+    public AbstractPlanetObject getTarget() {return target;}
 
 }

@@ -20,8 +20,8 @@ public class Sun extends AbstractPlanetObject {
         //Setting location and size
         position.set(((Constants.BACKGROUND_DIMENSION * (Constants.BACKGROUND_TILES_AMOUNT) ) / 2) - 50,
                 ((Constants.BACKGROUND_DIMENSION * 8 ) / 2) -50);
-        dimension.set(100, 100);
-        origin.set(50, 50);
+        dimension.set(150, 150);
+        origin.set(75, 75);
         scale.set(1,1);
 
         //Choosing the time-constant

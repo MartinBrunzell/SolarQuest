@@ -1,6 +1,7 @@
 package com.martinbrunzell.solarquest.game.objects.planets;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.martinbrunzell.solarquest.game.objects.AbstractWorldObject;
 import com.martinbrunzell.solarquest.util.Constants;
@@ -21,6 +22,7 @@ public class AbstractPlanetObject extends AbstractWorldObject{
         super.rotation = rotation;
         this.center = center;
         angle = System.currentTimeMillis();
+        bounds = new Rectangle(position.x, position.y, dimension.x, dimension.y);
     }
 
     @Override
@@ -33,6 +35,7 @@ public class AbstractPlanetObject extends AbstractWorldObject{
         float y = (float) Math.sin(angle) * radius + cP.y ;
 
         position.set(x, y);
+        bounds.set(position.x, position.y, dimension.x, dimension.y);
     }
 
     @Override
