@@ -6,91 +6,84 @@ filter: Nearest,Nearest
 repeat: none
 Earth
   rotate: false
-  xy: 1004, 825
+  xy: 1004, 822
   size: 36, 36
   orig: 36, 36
   offset: 0, 0
   index: -1
-flare_full
-  rotate: false
-  xy: 2, 2
-  size: 1, 1
-  orig: 1, 1
-  offset: 0, 0
-  index: -1
-flare_half
-  rotate: false
-  xy: 2, 2
-  size: 1, 1
-  orig: 1, 1
-  offset: 0, 0
-  index: -1
-flare_weak
-  rotate: false
-  xy: 2, 2
-  size: 1, 1
-  orig: 1, 1
-  offset: 0, 0
-  index: -1
 flare_weak2
   rotate: false
-  xy: 1113, 982
+  xy: 1113, 979
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
 mars
   rotate: false
-  xy: 1066, 977
+  xy: 1066, 974
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 mars_deimos
   rotate: false
-  xy: 1004, 803
+  xy: 1004, 764
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
   index: -1
 mars_phobos
   rotate: false
-  xy: 2, 5
+  xy: 2, 2
   size: 15, 15
   orig: 15, 15
   offset: 0, 0
   index: -1
 mercury
   rotate: false
-  xy: 1004, 863
+  xy: 1004, 860
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
+money
+  rotate: false
+  xy: 1192, 990
+  size: 16, 29
+  orig: 16, 29
+  offset: 0, 0
+  index: -1
 moon
   rotate: false
-  xy: 1004, 910
+  xy: 1004, 907
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
+science
+  rotate: false
+  xy: 1004, 786
+  size: 29, 34
+  orig: 29, 34
+  offset: 0, 0
+  index: -1
 space3
   rotate: false
-  xy: 2, 22
+  xy: 2, 19
   size: 1000, 1000
   orig: 1000, 1000
   offset: 0, 0
   index: -1
 sun
   rotate: false
-  xy: 1155, 987
+  xy: 1155, 984
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
 venus
   rotate: false
-  xy: 1004, 962
+  xy: 1004, 959
   size: 60, 60
   orig: 60, 60
   offset: 0, 0

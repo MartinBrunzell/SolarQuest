@@ -25,6 +25,8 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
     public AssetMars_Phobos mars_phobos;
     public AssetMars_Deimos mars_deimos;
     public AssetLevelDecoration levelDecoration;
+    public AssetFont fonts;
+    public AssetIcons icons;
 
     // Singleton class: Only one instance
     private Assets() {
@@ -59,6 +61,8 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         mars_phobos = new AssetMars_Phobos(atlas);
         mars_deimos = new AssetMars_Deimos(atlas);
         levelDecoration = new AssetLevelDecoration(atlas);
+        fonts = new AssetFont();
+        icons = new AssetIcons(atlas);
 
     }
 
@@ -69,6 +73,9 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
 
     @Override
     public void dispose() {
+        fonts.fontSmall.dispose();
+        fonts.fontNormal.dispose();
+        fonts.fontBig.dispose();
         assetManager.dispose();
     }
 
@@ -175,12 +182,22 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         public final BitmapFont fontBig;
 
         public AssetFont() {
-            fontSmall = new BitmapFont(Gdx.files.internal("images/arial-15.fnt"), true);
-            fontNormal = new BitmapFont(Gdx.files.internal("images/arial-15.fnt"), true);
-            fontBig = new BitmapFont(Gdx.files.internal("images/arial-15.fnt"), true);
-
-            
+            fontSmall = new BitmapFont(Gdx.files.internal("font/smallFont.fnt"), true);
+            fontNormal = new BitmapFont(Gdx.files.internal("font/normalFont.fnt"), true);
+            fontBig = new BitmapFont(Gdx.files.internal("font/bigFont.fnt"), true);
         }
+    }
+
+    //Declares HUD icons
+    public class AssetIcons {
+        public final TextureAtlas.AtlasRegion scienceIcon;
+        public final TextureAtlas.AtlasRegion moneyIcon;
+
+        public AssetIcons (TextureAtlas atlas) {
+            scienceIcon = atlas.findRegion("science");
+            moneyIcon = atlas.findRegion("money");
+        }
+
     }
 }
 

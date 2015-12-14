@@ -9,6 +9,12 @@ public class Constants {
     // The visible game world height
     public static final float VIEWPORT_HEIGHT = 5.0f;
 
+    //HUD Width
+    public static final float VIEWPORT_HUD_WIDTH = 800.0f;
+
+    //HUD Height
+    public static final float VIEWPORT_HUD_HEIGHT = 480.0f;
+
     // Location of descprition file for atlas
     public static final String TEXTURE_ATLAS_OBJECT = "images/solarquest.pack";
 
