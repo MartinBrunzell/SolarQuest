@@ -5,9 +5,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.math.Vector2;
-import com.martinbrunzell.solarquest.game.objects.AbstractWorldObject;
-import com.martinbrunzell.solarquest.game.objects.planets.*;
 import com.martinbrunzell.solarquest.game.objects.Space;
+import com.martinbrunzell.solarquest.game.objects.planets.*;
 import com.martinbrunzell.solarquest.util.CameraHelper;
 
 public class WorldController extends InputAdapter{
@@ -46,7 +45,7 @@ public class WorldController extends InputAdapter{
         moon = new Moon(30, 1f, 100, earth);
         mercury = new Mercury(100, 1.8f, 100, sun);
         venus = new Venus(175, 4f, 100, sun);
-        mars = new Mars(350, 13f, 120, sun);
+        mars = new Mars(350, 6f, 120, sun);
         mars_phobos = new Mars_Phobos(20, 0.5f, 200, mars);
         mars_deimos = new Mars_Deimos(25, 2, 150, mars);
 
@@ -68,14 +67,20 @@ public class WorldController extends InputAdapter{
     // Makes the target system
     @Override
     public boolean touchDown(int x, int y, int pointer, int button) {
-        Gdx.app.debug(DEBUG_TAG, "X:" + x + "  Y:" + y);
-        AbstractPlanetObject target = hitBoxChecker(x, y);
-        Gdx.app.debug(DEBUG_TAG,"X: " +  mars.bounds.x + "Y: " +  mars.bounds.y);
+
+        Vector2 coord = cameraHelper.getWorldCoordinates(x, y);
+
+        Gdx.app.debug(DEBUG_TAG, "X:" + coord.x + " y:" + coord.y);
+        Gdx.app.debug(DEBUG_TAG, "Eearth X:" + earth.getPosition().x + " Y:" + earth.getPosition().y);
+
+        AbstractPlanetObject target = hitBoxChecker(coord.x, coord.y);
+        //AbstractPlanetObject target = hitBoxChecker(venus.getPosition().x + 45 , venus.getPosition().y + 15);
         cameraHelper.setTarget(target);
+        Gdx.app.debug(DEBUG_TAG,"" + target);
         return true;
     }
 
-    private AbstractPlanetObject hitBoxChecker(int x, int y) {
+    private AbstractPlanetObject hitBoxChecker(float x, float y) {
         if(mercury.bounds.contains(x, y))
             return mercury;
         else if (venus.bounds.contains(x, y))
@@ -84,6 +89,8 @@ public class WorldController extends InputAdapter{
             return earth;
         else if (mars.bounds.contains(x, y))
             return mars;
+        else if (sun.bounds.contains(x, y))
+            return sun;
         else
             return null;
     }

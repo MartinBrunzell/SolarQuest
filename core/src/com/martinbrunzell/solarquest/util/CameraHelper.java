@@ -1,9 +1,9 @@
 package com.martinbrunzell.solarquest.util;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.martinbrunzell.solarquest.game.objects.planets.AbstractPlanetObject;
 
 public class CameraHelper {
@@ -15,12 +15,13 @@ public class CameraHelper {
     private Vector2 position;
     private float zoom;
     private AbstractPlanetObject target;
+    private OrthographicCamera camera;
 
     public CameraHelper() {
         position = new Vector2();
         position.set(((Constants.BACKGROUND_DIMENSION * (Constants.BACKGROUND_TILES_AMOUNT) ) / 2) - 50,
                 ((Constants.BACKGROUND_DIMENSION * 8 ) / 2) -50);
-        zoom = 100.5f;
+        zoom = 130f;
         target = null;
     }
 
@@ -45,19 +46,16 @@ public class CameraHelper {
             camera.position.x = target.position.x;
             camera.position.y = target.position.y;
         }
-
-        /*
-        if(target == null) {
-            camera.position.x = position.x;
-            camera.position.y = position.y;
-        } else {
-            camera.position.x = target.position.x;
-            camera.position.y = target.position.y;
-        }
-        */
         camera.zoom = zoom;
         camera.update();
 
+    }
+
+    public Vector2 getWorldCoordinates(float x, float y) {
+        Vector3 coords = new Vector3(x, y, 0);
+        Vector3 newCoord = camera.unproject(coords);
+
+        return new Vector2(newCoord.x, newCoord.y);
     }
 
     public void dragCamera(float x, float y) {
@@ -102,5 +100,8 @@ public class CameraHelper {
         this.target = target;
     }
     public AbstractPlanetObject getTarget() {return target;}
+    public void setCamera(OrthographicCamera camera) {
+        this.camera = camera;
+    }
 
 }

@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.martinbrunzell.solarquest.util.Constants;
 import com.sun.media.jfxmediaimpl.MediaDisposer;
@@ -23,6 +24,7 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
     public AssetMars mars;
     public AssetMars_Phobos mars_phobos;
     public AssetMars_Deimos mars_deimos;
+    public AssetLevelDecoration levelDecoration;
 
     // Singleton class: Only one instance
     private Assets() {
@@ -40,9 +42,9 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         assetManeger.finishLoading();
 
         TextureAtlas atlas = assetManeger.get(Constants.TEXTURE_ATLAS_OBJECT);
-
+        /*
         // enables texture filtering for pixel smoothing
-      /*  for (Texture t : atlas.getTextures())
+        for (Texture t : atlas.getTextures())
             t.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
         */
 
@@ -56,6 +58,7 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         mars = new AssetMars(atlas);
         mars_phobos = new AssetMars_Phobos(atlas);
         mars_deimos = new AssetMars_Deimos(atlas);
+        levelDecoration = new AssetLevelDecoration(atlas);
 
     }
 
@@ -151,6 +154,32 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
 
         public AssetMars_Deimos(TextureAtlas atlas) {
             mars_deimos = atlas.findRegion("mars_deimos");
+        }
+    }
+
+
+
+    //Declares Level decoration
+    public class AssetLevelDecoration {
+        public final TextureAtlas.AtlasRegion flare;
+
+        public AssetLevelDecoration(TextureAtlas atlas) {
+            flare = atlas.findRegion("flare_weak2");
+        }
+    }
+
+    //Declares fonts
+    public class AssetFont {
+        public final BitmapFont fontSmall;
+        public final BitmapFont fontNormal;
+        public final BitmapFont fontBig;
+
+        public AssetFont() {
+            fontSmall = new BitmapFont(Gdx.files.internal("images/arial-15.fnt"), true);
+            fontNormal = new BitmapFont(Gdx.files.internal("images/arial-15.fnt"), true);
+            fontBig = new BitmapFont(Gdx.files.internal("images/arial-15.fnt"), true);
+
+            
         }
     }
 }
