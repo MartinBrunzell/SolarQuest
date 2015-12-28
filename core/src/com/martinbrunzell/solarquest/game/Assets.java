@@ -15,6 +15,7 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
     public static final Assets instance = new Assets();
     private AssetManager assetManager;
 
+    //Planets and moons
     public AssetSpace space;
     public AssetSun sun;
     public AssetEarth earth;
@@ -24,9 +25,15 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
     public AssetMars mars;
     public AssetMars_Phobos mars_phobos;
     public AssetMars_Deimos mars_deimos;
+
+    // Level and game misc
     public AssetLevelDecoration levelDecoration;
     public AssetFont fonts;
     public AssetIcons icons;
+
+    // Base textures
+    public AssetBase base;
+
 
     // Singleton class: Only one instance
     private Assets() {
@@ -44,13 +51,10 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         assetManeger.finishLoading();
 
         TextureAtlas atlas = assetManeger.get(Constants.TEXTURE_ATLAS_OBJECT);
-        /*
-        // enables texture filtering for pixel smoothing
-        for (Texture t : atlas.getTextures())
-            t.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
-        */
 
         // creates game reasource objects
+
+        //Planets and moons
         space = new AssetSpace(atlas);
         sun = new AssetSun(atlas);
         earth = new AssetEarth(atlas);
@@ -60,10 +64,14 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
         mars = new AssetMars(atlas);
         mars_phobos = new AssetMars_Phobos(atlas);
         mars_deimos = new AssetMars_Deimos(atlas);
+
+        // Level and game misc
         levelDecoration = new AssetLevelDecoration(atlas);
         fonts = new AssetFont();
         icons = new AssetIcons(atlas);
 
+        // Base textures
+        base = new AssetBase(atlas);
     }
 
     @Override
@@ -195,9 +203,24 @@ public class Assets implements MediaDisposer.Disposable, AssetErrorListener{
 
         public AssetIcons (TextureAtlas atlas) {
             scienceIcon = atlas.findRegion("science");
-            moneyIcon = atlas.findRegion("money");
+            moneyIcon = atlas.findRegion("moneyDollar");
         }
 
+    }
+
+    // Declares the base
+    public class AssetBase {
+        public final TextureAtlas.AtlasRegion background;
+        public final TextureAtlas.AtlasRegion mission;
+        public final TextureAtlas.AtlasRegion vab;
+        public final TextureAtlas.AtlasRegion lab;
+
+        public AssetBase (TextureAtlas atlas) {
+            background = atlas.findRegion("baseBackground");
+            mission = atlas.findRegion("baseMission");
+            vab = atlas.findRegion("baseVab");
+            lab = atlas.findRegion("baseLab");
+        }
     }
 }
 

@@ -1,17 +1,16 @@
 package com.martinbrunzell.solarquest.game;
 
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputAdapter;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.math.Vector2;
 import com.martinbrunzell.solarquest.game.objects.Space;
 import com.martinbrunzell.solarquest.game.objects.planets.*;
+import com.martinbrunzell.solarquest.screens.MenuScreen;
 import com.martinbrunzell.solarquest.util.CameraHelper;
 
 public class WorldController extends InputAdapter{
     private static final String DEBUG_TAG = WorldController.class.getName();
     public CameraHelper cameraHelper;
+    private Game game;
 
     // Objects
     protected Space space;
@@ -30,8 +29,14 @@ public class WorldController extends InputAdapter{
 
 
 
-    public WorldController () {
+    public WorldController (Game game) {
+        this.game = game;
         init();
+    }
+
+    private void backToMenu () {
+        // switch to menu screen
+        game.setScreen(new MenuScreen(game));
     }
 
     private void init() {
@@ -62,6 +67,16 @@ public class WorldController extends InputAdapter{
     public boolean touchDragged (int x, int y, int pointer) {
         cameraHelper.dragCamera(Gdx.input.getDeltaX(), Gdx.input.getDeltaY());
         return true;
+    }
+
+    // Implements pc Controls
+    @Override
+    public boolean keyUp (int keycode) {
+        //Return you to the main menu if player press esc
+        if (keycode == Input.Keys.ESCAPE){
+            backToMenu();
+        }
+        return false;
     }
 
     // Makes the target system

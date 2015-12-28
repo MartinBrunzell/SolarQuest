@@ -19,7 +19,7 @@ public abstract class AbstractWorldObject {
         origin = new Vector2();
         scale = new Vector2();
         rotation = 0;
-        bounds = new Rectangle();
+        bounds = new Rectangle(position.x, position.y, dimension.x, dimension.y);
     }
 
     public abstract void update(float deltaTime);

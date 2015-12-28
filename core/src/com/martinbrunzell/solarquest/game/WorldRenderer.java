@@ -53,6 +53,8 @@ public class WorldRenderer implements MediaDisposer.Disposable{
         batch.end();
     }
 
+
+
     public void resize(int width, int height){
         camera.viewportWidth = (Constants.VIEWPORT_HEIGHT / (float) height ) * (float)width;
         camera.update();
@@ -98,12 +100,12 @@ public class WorldRenderer implements MediaDisposer.Disposable{
     }
 
     private void renderCurrency(SpriteBatch batch) {
-        float x = 5;
+        float x = 2;
         float y = 30;
-        batch.draw(Assets.instance.icons.moneyIcon, x, y, 5, 5, 16 * 3, 25 * 3, 0.35f, - 0.35f, 0);
-        Assets.instance.fonts.fontSmall.draw(batch, "" + 300, 25, 12);
+        batch.draw(Assets.instance.icons.moneyIcon, x, y, 1, -1, 16 * 3, 25 * 3, 0.6f, -0.2f, 0);
+        Assets.instance.fonts.fontSmall.draw(batch, "" + 300, 28, 12);
 
-        batch.draw(Assets.instance.icons.scienceIcon, x * 22 + 20, y, 5, 5, 16 * 3, 25 * 3, 0.35f, - 0.35f, 0);
+        batch.draw(Assets.instance.icons.scienceIcon, 5 * 22 + 20, y, 5, 5, 16 * 3, 25 * 3, 0.35f, - 0.35f, 0);
         Assets.instance.fonts.fontSmall.draw(batch, "" + 2, 150, 12);
     }
 
