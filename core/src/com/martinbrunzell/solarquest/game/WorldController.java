@@ -2,6 +2,7 @@ package com.martinbrunzell.solarquest.game;
 
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.math.Vector2;
+import com.martinbrunzell.solarquest.game.objects.Base;
 import com.martinbrunzell.solarquest.game.objects.Space;
 import com.martinbrunzell.solarquest.game.objects.planets.*;
 import com.martinbrunzell.solarquest.screens.MenuScreen;
@@ -24,6 +25,8 @@ public class WorldController extends InputAdapter{
     protected Mars mars;
     protected Mars_Phobos mars_phobos;
     protected Mars_Deimos mars_deimos;
+
+    protected Base base;
 
     private float test = 0;
 
@@ -53,6 +56,7 @@ public class WorldController extends InputAdapter{
         mars = new Mars(350, 6f, 120, sun);
         mars_phobos = new Mars_Phobos(20, 0.5f, 200, mars);
         mars_deimos = new Mars_Deimos(25, 2, 150, mars);
+        base = new Base();
 
     }
 

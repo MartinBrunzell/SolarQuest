@@ -1,5 +1,6 @@
 package com.martinbrunzell.solarquest.game.objects.planets;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
@@ -36,6 +37,7 @@ public class AbstractPlanetObject extends AbstractWorldObject{
     @Override
     public void update(float deltaTime) {
         angle += deltaTime / timeConstant;
+        //Gdx.app.debug("d", ""+angle);
         Vector2 cP = center.getPosition();
         rotation += 5 * deltaTime;
 

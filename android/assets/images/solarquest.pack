@@ -6,14 +6,14 @@ filter: Nearest,Nearest
 repeat: none
 BaseIcon
   rotate: false
-  xy: 1004, 605
+  xy: 1306, 787
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
 Earth
   rotate: false
-  xy: 1189, 739
+  xy: 1491, 921
   size: 36, 36
   orig: 36, 36
   offset: 0, 0
@@ -25,44 +25,51 @@ baseBackground
   orig: 300, 180
   offset: 0, 0
   index: -1
+baseBackground1
+  rotate: false
+  xy: 1004, 657
+  size: 300, 180
+  orig: 300, 180
+  offset: 0, 0
+  index: -1
 baseLab
   rotate: false
-  xy: 1004, 530
+  xy: 1605, 993
   size: 40, 26
   orig: 40, 26
   offset: 0, 0
   index: -1
 baseMission
   rotate: false
-  xy: 1306, 848
+  xy: 1004, 484
   size: 55, 59
   orig: 55, 59
   offset: 0, 0
   index: -1
 baseVab
   rotate: false
-  xy: 1479, 976
+  xy: 1177, 612
   size: 59, 43
   orig: 59, 43
   offset: 0, 0
   index: -1
 flare_weak2
   rotate: false
-  xy: 1540, 979
+  xy: 1238, 615
   size: 40, 40
   orig: 40, 40
   offset: 0, 0
   index: -1
 mars
   rotate: false
-  xy: 1004, 558
+  xy: 1177, 565
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 mars_deimos
   rotate: false
-  xy: 1452, 887
+  xy: 1280, 635
   size: 20, 20
   orig: 20, 20
   offset: 0, 0
@@ -76,56 +83,56 @@ mars_phobos
   index: -1
 mercury
   rotate: false
-  xy: 1056, 610
+  xy: 1306, 740
   size: 45, 45
   orig: 45, 45
   offset: 0, 0
   index: -1
 missonIcon
   rotate: false
-  xy: 1251, 787
+  xy: 1553, 969
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
 money
   rotate: false
-  xy: 1582, 990
+  xy: 1113, 514
   size: 16, 29
   orig: 16, 29
   offset: 0, 0
   index: -1
 moneyDollar
   rotate: false
-  xy: 1004, 657
+  xy: 1306, 839
   size: 180, 78
   orig: 180, 78
   offset: 0, 0
   index: -1
 moneyStack
   rotate: false
-  xy: 1004, 737
+  xy: 1306, 919
   size: 183, 100
   orig: 183, 100
   offset: 0, 0
   index: -1
 moneyT
   rotate: false
-  xy: 1227, 746
+  xy: 1306, 709
   size: 16, 29
   orig: 16, 29
   offset: 0, 0
   index: -1
 moon
   rotate: false
-  xy: 1363, 857
+  xy: 1004, 432
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
 science
   rotate: false
-  xy: 1103, 621
+  xy: 1004, 396
   size: 29, 34
   orig: 29, 34
   offset: 0, 0
@@ -139,28 +146,28 @@ space3
   index: -1
 starmapIcon
   rotate: false
-  xy: 1479, 924
+  xy: 1061, 493
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
 sun
   rotate: false
-  xy: 1415, 872
+  xy: 1358, 802
   size: 35, 35
   orig: 35, 35
   offset: 0, 0
   index: -1
 venus
   rotate: false
-  xy: 1189, 777
+  xy: 1491, 959
   size: 60, 60
   orig: 60, 60
   offset: 0, 0
   index: -1
 walletMoney
   rotate: false
-  xy: 1306, 909
+  xy: 1004, 545
   size: 171, 110
   orig: 171, 110
   offset: 0, 0

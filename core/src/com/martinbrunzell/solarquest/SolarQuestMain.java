@@ -1,9 +1,6 @@
 package com.martinbrunzell.solarquest;
 
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.martinbrunzell.solarquest.game.Assets;
@@ -25,5 +22,13 @@ public class SolarQuestMain extends Game {
         setScreen(new MenuScreen(this));
 
 	}
+
+    @Override
+    public void setScreen(Screen screen) {
+        if(getScreen() != null){
+            getScreen().dispose();
+        }
+        super.setScreen(screen);
+    }
 
 }

@@ -1,22 +1,23 @@
-package com.martinbrunzell.solarquest.screens.veiws;
+package com.martinbrunzell.solarquest.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.martinbrunzell.solarquest.game.WorldController;
 import com.martinbrunzell.solarquest.game.WorldRenderer;
-import com.martinbrunzell.solarquest.screens.AbstractGameScreen;
 
-public class GameScreen extends AbstractGameScreen {
+public class GameScreen implements Screen {
     private static final String TAG = GameScreen.class.getName();
 
     private WorldController worldController;
     private WorldRenderer worldRenderer;
+    private Game game;
 
     private boolean paused;
 
     public GameScreen(Game game) {
-        super(game);
+        this.game = game;
     }
 
     @Override
@@ -42,6 +43,10 @@ public class GameScreen extends AbstractGameScreen {
     }
 
     @Override public void hide() {
+    }
+
+    @Override
+    public void dispose() {
         worldRenderer.dispose();
         Gdx.input.setCatchBackKey(false);
     }
@@ -53,7 +58,6 @@ public class GameScreen extends AbstractGameScreen {
 
     //Only called in Android!
     @Override public void resume() {
-        super.resume();
         paused = false;
 
     }

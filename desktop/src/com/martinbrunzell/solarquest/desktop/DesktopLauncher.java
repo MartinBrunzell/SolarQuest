@@ -21,6 +21,7 @@ public class DesktopLauncher {
             settings.debug = drawDebugOutline;
             settings.atlasExtension="";
             TexturePacker.process(settings, "assets-raw/images", "images", "solarquest.pack" );
+            TexturePacker.process(settings, "assets-raw/images-ui", "images", "solarquest-ui.pack");
         }
 
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
